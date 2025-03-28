@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "numero_tessera")
+    @Column(name = "Id_numero_tessera")
     private UUID id;
 
     @Column(nullable = false)

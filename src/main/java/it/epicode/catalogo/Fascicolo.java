@@ -7,6 +7,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "fascicoli")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NamedQuery(name = "fascicolo.find.ricerca_per_anno_pubblicazione", query = "SELECT f FROM Fascicolo f WHERE f.annoPubblicazione = :annoPubblicazione")
 public abstract class Fascicolo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

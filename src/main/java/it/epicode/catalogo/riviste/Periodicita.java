@@ -2,7 +2,7 @@ package it.epicode.catalogo.riviste;
 
 public enum Periodicita {
     QUOTIDIANO,
-    SEMANALE,
+    SETTIMANALE,
     MENSILE,
     ANNUALE
 }
