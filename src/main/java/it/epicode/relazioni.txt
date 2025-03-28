@@ -1,0 +1,22 @@
+ _______________                ________________________                _________________________________
+|   AUTORI      |              |   FASCICOLI            |              |   PRESTITI                      |
+|---------------|              |------------------------|              |---------------------------------|
+|   Id_autore   |-One--v       |   Id_fascicolo         |-One--v       |   Prestito_id                   |
+|   Nome        |      |       |   Titolo               |      |       |   Id_utente/Tessera             |}-Many-v
+|   Cognome     |      |       |   Anno_Pubblicazione   |      L Many-{|   Id_fascicolo                  |       |
+|_______________|      |       |   Numero_Pagine        |              |   Data_inizio_prestito          |       |
+                       L Many-{|   *(L)Id_Autore        |              |   Data_restituzione_prevista    |       |
+                               |       Genere           |              |   Data_restituzione_effettiva   |       |
+                               |   *(R)Periodicità      |              |_________________________________|       |
+                               |________________________|                                                        |
+                                                                                                                 |
+                                                                        _______________________                  |
+                                                                       |   UTENTI              |                 |
+                                                                       |-----------------------|                 |
+                                                                       |   Id_utente/Tessera   |-One-------------<
+                                                                       |   Nome                |
+                                                                       |   Cognome             |
+                                                                       |   Data_nascita        |
+                                                                       |_______________________|
+
+...Pessima idea come formato.

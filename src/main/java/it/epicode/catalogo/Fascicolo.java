@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "fascicoli")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Fascicolo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

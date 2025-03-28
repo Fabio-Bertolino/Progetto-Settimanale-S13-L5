@@ -14,9 +14,11 @@ public class Prestito {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @ManyToOne
     private Utente utente;
 
-    @Column(name = "elemento_prestato")
+    @ManyToOne
+    @JoinColumn(name = "elemento_prestato_id")
     private Fascicolo elementoPrestato;
 
     @Column(name = "data_inizio_prestito")

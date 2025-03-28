@@ -2,15 +2,15 @@ package it.epicode.catalogo.libri;
 
 import it.epicode.catalogo.Fascicolo;
 import it.epicode.catalogo.libri.autori.Autore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
 @Entity
 public class Libro extends Fascicolo {
+    @ManyToOne
     private Autore autore;
+
     @Enumerated(EnumType.STRING)
     private Genere genere;
 
