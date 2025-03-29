@@ -9,6 +9,9 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "prestiti")
+//Nel costruttore Utente ho interpretato la come Primary key generata come codice per la tessera, non sono 100% sicuro che sia corretto
+@NamedQuery(name = "prestito.find.ricerca_prestiti_per_numero_tessera_utente", query = "SELECT p FROM Prestito p JOIN p.utente u WHERE u.id = :idUtente")
+@NamedQuery(name = "prestito.find.ricerca_prestiti_scaduti_non_restituiti", query = "SELECT p FROM Prestito p JOIN p.elementoPrestato WHERE p.dataRestituzionePrevista < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
 public class Prestito {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

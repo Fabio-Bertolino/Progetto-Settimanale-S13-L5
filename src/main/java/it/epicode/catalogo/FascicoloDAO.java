@@ -1,6 +1,6 @@
-package it.epicode.catalogo.riviste;
+package it.epicode.catalogo;
 
-import it.epicode.catalogo.Fascicolo;
+import it.epicode.catalogo.libri.Libro;
 import it.epicode.catalogo.libri.autori.Autore;
 import jakarta.persistence.EntityManager;
 
@@ -34,9 +34,25 @@ public class FascicoloDAO {
         return em.find(Fascicolo.class, id);
     }
 
-    public List<Fascicolo> findFascicoliPerAnnoPubblicazione(int anno) {
+    public List<Fascicolo> cercaFascicoliPerAnnoPubblicazione(int anno) {
         return em.createNamedQuery("fascicolo.find.ricerca_per_anno_pubblicazione", Fascicolo.class)
                 .setParameter("annoPubblicazione", anno)
                 .getResultList();
+    }
+
+    public List<Libro> cercaLibriPerAutore(Autore autore) {
+        return em.createNamedQuery("libro.find.ricerca_per_autore", Libro.class)
+                .setParameter("autore", autore)
+                .getResultList();
+    }
+
+    public List<Fascicolo> cercaFascicoliPerTitoloParziale(String titolo) {
+        List<Fascicolo> results =em.createNamedQuery("fascicolo.find.ricerca_per_titolo_o_parte_di_esso", Fascicolo.class)
+                                   .setParameter("titolo", "%" + titolo + "%")
+                                   .getResultList();
+        if (results.isEmpty()) {
+            System.out.println("Nessun fascicolo trovato per il titolo: " + titolo);
+        }
+        return results;
     }
 }

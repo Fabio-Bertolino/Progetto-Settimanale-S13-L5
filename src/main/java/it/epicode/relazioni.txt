@@ -20,3 +20,6 @@
                                                                        |_______________________|
 
 ...Pessima idea come formato.
+-Ad 1 autore possono corrispondere più libri, ma un libro può avere solo 1 autore
+-1 libro specifico può essere stato prestato a molti utenti
+-1 utente specifico può aver preso in prestito svariati libri

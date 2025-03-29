@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
+@NamedQuery(name = "libro.find.ricerca_per_autore", query = "SELECT l FROM Libro l WHERE l.autore = :autore")
 public class Libro extends Fascicolo {
     @ManyToOne
     private Autore autore;
